@@ -6,20 +6,23 @@ import Header,{Profile} from "./Header"
 // }
 
 function Apoorv(){
-   const [val, setVal] = useState(0);
-  const increase = () => {
-    setVal(val + 1);
+  const [display , setDisp] = useState(true);
+
+  const bulao = ()=>{
+    setDisp(true);
   }
 
-  const decrease = () =>{
-    setVal(val -1);
+  const bhgao = ()=>{
+    setDisp(false);
   }
   return (
     <>
-      <h1>Counter</h1>
-      <h2>Current value is {val}</h2>
-      <button onClick={increase}>Increase</button>
-      <button onClick={decrease}>Decrease</button>
+      <h1>Toggle</h1>
+      {
+        display?<h1>Apoorv aa gya</h1>:<h1>Apoorv chla gya</h1>
+      }
+      <button onClick={bulao}>Apoorv bulao button</button>
+      <button onClick={bhgao}>Apoorv bhgao button</button>
     </>
   )
 }
