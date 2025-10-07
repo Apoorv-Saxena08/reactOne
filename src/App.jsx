@@ -8,21 +8,18 @@ import Header,{Profile} from "./Header"
 function Apoorv(){
   const [display , setDisp] = useState(true);
 
-  const bulao = ()=>{
-    setDisp(true);
+  const anaJana = ()=>{
+    setDisp(!display);
   }
 
-  const bhgao = ()=>{
-    setDisp(false);
-  }
   return (
     <>
       <h1>Toggle</h1>
       {
-        display?<h1>Apoorv aa gya</h1>:<h1>Apoorv chla gya</h1>
+        display?<Header />:null
       }
-      <button onClick={bulao}>Apoorv bulao button</button>
-      <button onClick={bhgao}>Apoorv bhgao button</button>
+      <button onClick={anaJana}>Apoorv ka button</button>
+
     </>
   )
 }
