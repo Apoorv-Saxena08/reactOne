@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { use, useState } from "react"
 import Header,{Profile} from "./Header"
 
 // function click(){
@@ -6,19 +6,26 @@ import Header,{Profile} from "./Header"
 // }
 
 function Apoorv(){
-  const [display , setDisp] = useState(true);
+  const [count,setCount] = useState(0);
 
-  const anaJana = ()=>{
-    setDisp(!display);
+  const change =()=>{
+    setCount(count+1)
   }
+
 
   return (
     <>
-      <h1>Toggle</h1>
+      <h1>Multiple conditionals</h1>
+      <h2>{count}</h2>
+
+      <button onClick={change}>Change</button>
+
       {
-        display?<Header />:null
+        count==0?<p>Count is 0</p>
+        :count == 1?<p>Count is 1</p>
+        :count == 2?<p>Count is 2</p>
+        :<p>Count aapse se bhaar ho gya</p>
       }
-      <button onClick={anaJana}>Apoorv ka button</button>
 
     </>
   )
