@@ -8,40 +8,52 @@ import Checkbox from "./Checkbox";
 // }
 
 function App() {
-  //const name = "Apoorv";
-  let [val, setVal] = useState("");
-  const [name,setName] = useState("");
-  const [pwd,setPwd] = useState("");
-  const [email,setEmail] = useState("");
-  
-  const [gender,setGen] = useState("Male")
-  const [city,setCity] = useState("Delhi");
+  const user = [
+    {
+      id: 1,
+      name: "Apoorv",
+      age: 20,
+    },
+    {
+      id: 2,
+      name: "Anil",
+      age: 25,
+    },
+    {
+      id: 3,
+      name: "Sachin",
+      age: 10,
+    },
+    {
+      id: 4,
+      name: "Yash",
+      age: 29,
+    },
+  ];
+
   return (
     <>
       <div>
-        <h3>Selected Gender : {gender} </h3>
-        <input type="radio" name="gender" id="male" 
-        onChange={(e)=>setGen(e.target.value)} value="Male"
-        checked={gender=="Male"}
-        />
-        <label htmlFor="male">Male</label>
-        <input type="radio" name="gender" id="female"
-        onChange={(e)=>setGen(e.target.value)}
-        value={"Female"}
-        checked={gender=="Female"}
-        />
-        <label htmlFor="female">Female</label>
-        <hr />
+        <h1>Loop in Jsx</h1>
+        <table border="1">
+          <thead>
+            <tr>
+              <td>Id</td>
+              <td>Name</td>
+              <td>Age</td>
+            </tr>
+          </thead>
 
-        <h4>Select City</h4>
-        <select name="" id=""
-        onChange={(e)=>setCity(e.target.value)}
-        defaultValue={"Delhi"} >
-          <option value="Noida">Noida</option>
-          <option value="Delhi">Delhi</option>
-          <option value="Mumbai">Mumbai</option>
-        </select>
-        <h3 style={{color:"red"}} >You Choosed : {city} </h3>
+          <tbody>
+            {user.map((u) => (
+              <tr key={u.id}>
+                <td>{u.id}</td>
+                <td>{u.name}</td>
+                <td>{u.age}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </>
   );
