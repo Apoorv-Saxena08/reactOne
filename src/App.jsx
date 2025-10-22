@@ -2,7 +2,7 @@ import { use, useState } from "react";
 import Header, { Profile } from "./Header";
 import User from "./User";
 import Wrapper from "./Wrapper";
-
+import Checkbox from "./Checkbox";
 // function click(){
 //   alert("Bhaar vala");
 // }
@@ -14,30 +14,34 @@ function App() {
   const [pwd,setPwd] = useState("");
   const [email,setEmail] = useState("");
   
+  const [gender,setGen] = useState("Male")
+  const [city,setCity] = useState("Delhi");
   return (
     <>
       <div>
-        <h1>Controlled components</h1>
-        <form action="" method="get">
-          <input type="text" name="" id="" placeholder="Enter name" value={name} onChange={(event)=>setName(event.target.value)} />
-          <br />
-          <br />
-          <input type="password" name="" id="" placeholder="Enter Password" value={pwd} onChange={(event)=>setPwd(event.target.value)} />
-          <br />
-          <br />
-          <input type="text" name="" id="" placeholder="Enter email" value={email} onChange={(event)=>setEmail(event.target.value)} />
-          <br />
-          <br />
-          <button>Submit</button>
-          <button onClick={()=>{setEmail("");
-            setName("");
-            setPwd("");
-          }} >Clear</button>
-          <br />
-          <h3>{name}</h3>
-          <h3>{pwd}</h3>
-          <h3>{email}</h3>
-        </form>
+        <h3>Selected Gender : {gender} </h3>
+        <input type="radio" name="gender" id="male" 
+        onChange={(e)=>setGen(e.target.value)} value="Male"
+        checked={gender=="Male"}
+        />
+        <label htmlFor="male">Male</label>
+        <input type="radio" name="gender" id="female"
+        onChange={(e)=>setGen(e.target.value)}
+        value={"Female"}
+        checked={gender=="Female"}
+        />
+        <label htmlFor="female">Female</label>
+        <hr />
+
+        <h4>Select City</h4>
+        <select name="" id=""
+        onChange={(e)=>setCity(e.target.value)}
+        defaultValue={"Delhi"} >
+          <option value="Noida">Noida</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Mumbai">Mumbai</option>
+        </select>
+        <h3 style={{color:"red"}} >You Choosed : {city} </h3>
       </div>
     </>
   );
