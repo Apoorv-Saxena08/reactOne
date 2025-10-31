@@ -1,26 +1,26 @@
 import { use, useEffect, useState } from "react";
 import Counter from "./Counter";
+import UserProfile from "./UserProfile";
 
 
 function App(){
 
-  const [count,setCount] = useState(0);
-  const [data,setData] = useState(0);
-  const [disp,setDisp] = useState(true);
   return (
-    <>
-      <div>
-        <h1>LifeCycle</h1>
+  <div >
 
-        {
-          disp?<Counter counter={count}  data={data} />:null
-        }
+    <h1 className="heading" >This is the page </h1>
 
-        <button onClick={()=>setCount(count+1)} >Counter {count}</button>
-        <button onClick={()=>setData(data+1)} >Data {data}</button>
-        <button onClick={()=>setDisp(!disp)} >Toggle</button>
-      </div>
-    </>
+    <div style={{display:"flex" ,flexWrap:"wrap"}} >
+    <UserProfile />
+    <UserProfile />
+    <UserProfile />
+    <UserProfile />
+    <UserProfile />
+    <UserProfile />
+    </div>
+
+  </div>
+
   );
 }
 

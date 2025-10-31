@@ -1,0 +1,18 @@
+/* module css */
+.heading{
+    color: brown;
+}
+
+.card{
+    border: 1px solid black;
+    width:200px;
+    background-color: #222;
+    color: antiquewhite;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 1px 1px 3px 1px brown;
+}
+
+.textWrap{
+    padding: 10px;
+}
