@@ -1,21 +1,20 @@
 import { useRef } from "react";
 import User from "./User";
+import UserInput from "./UserInput";
 
 function App(){
 
-  const displayName = (name)=>{
-        console.log(name);
-  }
+  const inputRef = useRef(null);
 
+  const update=()=>{
+    inputRef.current.value = '200';
+    inputRef.current.focus();
+  }
   return (
   <div >
-      <h1>Pass function in component as props</h1>
-      <br />
-      <User displayName={displayName} name="apoo" /><br /><br />
-      <User displayName={displayName} name="srk" /><br /><br />
-      <User displayName={displayName} name="pappu" /><br /><br />
-      <User displayName={displayName} name="burahh" /><br /><br />
-
+      <h1>Forward Ref</h1>
+      <UserInput ref={inputRef}/>
+      <button onClick={update} >Update Input Field</button>
    </div>
 
   );
