@@ -1,7 +1,8 @@
-function User(props){
+function User({displayName,name}){
+
     return(
         <>
-        <h1>Hello {props.name}</h1>
+        <button onClick={()=>displayName(name)} >Display User</button>
         </>
     )
 }

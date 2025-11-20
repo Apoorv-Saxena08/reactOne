@@ -1,53 +1,20 @@
 import { useRef } from "react";
+import User from "./User";
 
 function App(){
 
-  const userRef = useRef();
-  const pwdRef = useRef();
-
-  const handleForm =(e)=>{
-    e.preventDefault();
-    const user = document.querySelector("#user").value;
-    console.log(user);
-    const pwd = document.querySelector("#pwd").value;
-    console.log(pwd); 
-  }
-  const handleFormRef =(e)=>{
-    e.preventDefault();
-    const user = userRef.current.value;
-    console.log(user);
-    const pwd = pwdRef.current.value;
-    console.log(pwd); 
+  const displayName = (name)=>{
+        console.log(name);
   }
 
   return (
   <div >
-      <h1>Uncontrolled Component</h1>
-      <form action="" onSubmit={handleForm} >
-        <br />
-        <input type="text" id="user" placeholder="Enter username" />
-        <br /><br />
-        <input type="password" name="" id="pwd" placeholder="Enter password" />
-
-        <br /> <br />
-        <button>
-          Submit
-        </button>
-      </form>
-
-      <hr />
-      <h1>Uncontrolled Component with useRef</h1>
-      <form action="" onSubmit={handleFormRef} >
-        <br />
-        <input type="text" id="userRef" ref={userRef} placeholder="Enter username" />
-        <br /><br />
-        <input type="passwordRef" name="" ref={pwdRef} id="pwd" placeholder="Enter password" />
-
-        <br /> <br />
-        <button>
-          Submit with Ref
-        </button>
-      </form>
+      <h1>Pass function in component as props</h1>
+      <br />
+      <User displayName={displayName} name="apoo" /><br /><br />
+      <User displayName={displayName} name="srk" /><br /><br />
+      <User displayName={displayName} name="pappu" /><br /><br />
+      <User displayName={displayName} name="burahh" /><br /><br />
 
    </div>
 
