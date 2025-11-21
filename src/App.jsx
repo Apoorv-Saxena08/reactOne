@@ -1,28 +1,21 @@
-import { useRef, useTransition } from "react";
+import { useRef, useState, useTransition } from "react";
 import User from "./User";
 import UserInput from "./UserInput";
 import { useFormStatus } from "react-dom";
+import AddUser from "./AddUser";
+import DisplayUSer from "./DisplayUSer";
+
+
 function App() {
-
-  const [pending,startTransition] = useTransition();
-  const handlebtn =()=>{
-
-    startTransition( async()=>{
-      await new Promise(res=> setTimeout(res,5000));
-    } )
-  }
+  const [user, setUser] = useState('');
 
   return (
     <div>
-      <h1>useTransition hook </h1>
-      <br />
+         <h1>Lifting State up</h1>
+         <br />
 
-      {
-        pending?
-        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmprZnpoMHN3bjh2ODdmdmo0OTM5dnRmanE4OWhrY3B4eDEzNjdvciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xTk9ZvMnbIiIew7IpW/giphy.gif" alt="" />:null
-      }
-
-      <button disabled={pending} onClick={handlebtn} >{pending?"Submitting":"Submit"}</button>
+         <AddUser setUser={setUser} />
+         <DisplayUSer user={user}  />
     </div>
   );
 }
