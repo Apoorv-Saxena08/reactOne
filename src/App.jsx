@@ -1,36 +1,28 @@
-import { useRef } from "react";
+import { useRef, useTransition } from "react";
 import User from "./User";
 import UserInput from "./UserInput";
 import { useFormStatus } from "react-dom";
 function App() {
-  const handleSubmit = async () => {
-    await new Promise((res) => setTimeout(res, 2000));
-    console.log("Submit");
-  };
 
-  function CustomerDetail() {
+  const [pending,startTransition] = useTransition();
+  const handlebtn =()=>{
 
-    const {pending}  = useFormStatus()
-
-    return (
-      <div>
-        <form action={handleSubmit}>
-          <input type="text" name=""  placeholder="Enter name" /> <br />
-          <br />
-          <input type="password" name=""placeholder="Enter password" />
-          <br />
-          <br />
-          <button disabled={pending}>{pending?"Submitting":"Submit"}</button>
-        </form>
-      </div>
-    );
+    startTransition( async()=>{
+      await new Promise(res=> setTimeout(res,5000));
+    } )
   }
 
   return (
     <div>
-      <h1>UseFormStatus hook </h1>
+      <h1>useTransition hook </h1>
       <br />
-      <CustomerDetail />
+
+      {
+        pending?
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmprZnpoMHN3bjh2ODdmdmo0OTM5dnRmanE4OWhrY3B4eDEzNjdvciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xTk9ZvMnbIiIew7IpW/giphy.gif" alt="" />:null
+      }
+
+      <button disabled={pending} onClick={handlebtn} >{pending?"Submitting":"Submit"}</button>
     </div>
   );
 }
